@@ -1,16 +1,14 @@
 using COMP3300Assignment9PerrinOwens.Models;
-using System;
-using System.IO;
 using System.Text.Json;
-using System.Windows.Forms;
 
 namespace COMP3300Assignment9PerrinOwens
 {
     public partial class MainForm : Form
     {
-        private List<SavingsAccount> savingsAccounts = new List<SavingsAccount>();
-        private List<CheckingAccount> checkingAccounts = new List<CheckingAccount>();
-        private List<MoneyMarketAccount> moneyMarketAccounts = new List<MoneyMarketAccount>();
+        private List<SavingsAccount> savingsAccounts = new();
+        private List<CheckingAccount> checkingAccounts = new();
+        private List<MoneyMarketAccount> moneyMarketAccounts = new();
+        
         public MainForm()
         {
             InitializeComponent();
@@ -32,6 +30,13 @@ namespace COMP3300Assignment9PerrinOwens
         {
             string jsonData = File.ReadAllText(filePath);
             var accounts = JsonSerializer.Deserialize<List<BankAccount>>(jsonData);
+
+            if (accounts == null)
+            {
+                MessageBox.Show("Failed to deserialize JSON data.");
+                return;
+            }
+
             savingsAccounts.Clear();
             checkingAccounts.Clear();
             moneyMarketAccounts.Clear();
@@ -58,6 +63,7 @@ namespace COMP3300Assignment9PerrinOwens
             }
         }
 
+
         private void btnShowSavings_Click(object sender, EventArgs e)
         {
             lstAccounts.Items.Clear();
@@ -66,24 +72,6 @@ namespace COMP3300Assignment9PerrinOwens
                 lstAccounts.Items.Add(account.ToString());
             }
         }
-
-        /*private void btnShowChecking_Click(object sender, EventArgs e)
-        {
-            lstAccounts.Items.Clear();
-            foreach (var account in checkingAccounts)
-            {
-                lstAccounts.Items.Add(account.ToString());
-            }
-        }*/
-
-        /*private void btnShowMoneyMarket_Click(object sender, EventArgs e)
-        {
-            lstAccounts.Items.Clear();
-            foreach (var account in moneyMarketAccounts)
-            {
-                lstAccounts.Items.Add(account.ToString());
-            }
-        }*/
 
         private void btnShowChecking_Click_1(object sender, EventArgs e)
         {

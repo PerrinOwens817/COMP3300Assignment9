@@ -28,12 +28,5 @@
       <FileName>Models\SavingsAccount.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="COMP3300Assignment9PerrinOwens.MainForm">
-    <Position X="0.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAUABAQCAAAAAAIICAAAACAAIBAQAABAAAABAAAGA=</HashCode>
-      <FileName>Form\MainForm.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

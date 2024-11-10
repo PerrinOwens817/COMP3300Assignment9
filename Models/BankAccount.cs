@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace COMP3300Assignment9PerrinOwens.Models
+﻿namespace COMP3300Assignment9PerrinOwens.Models
 {
     public class BankAccount
     {
