@@ -3,17 +3,28 @@ using System.Text.Json;
 
 namespace COMP3300Assignment9PerrinOwens
 {
+    /// <summary>
+    /// Represents the main form of the application.
+    /// </summary>
     public partial class MainForm : Form
     {
         private List<SavingsAccount> savingsAccounts = new();
         private List<CheckingAccount> checkingAccounts = new();
         private List<MoneyMarketAccount> moneyMarketAccounts = new();
         
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSelectFile button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">an EventArgs that contains the event data.</param>
         private void btnSelectFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -26,6 +37,10 @@ namespace COMP3300Assignment9PerrinOwens
             }
         }
 
+        /// <summary>
+        /// Reads the JSON file from the specified file path and deserializes it into a list of bank accounts.
+        /// </summary>
+        /// <param name="filePath">The path of the JSON file to read.</param>
         private void ReadJsonFile(string filePath)
         {
             string jsonData = File.ReadAllText(filePath);
@@ -63,7 +78,11 @@ namespace COMP3300Assignment9PerrinOwens
             }
         }
 
-
+        /// <summary>
+        /// Handles the Click event of the btnShowSavings button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An EventArgs that contains the event data.</param>
         private void btnShowSavings_Click(object sender, EventArgs e)
         {
             lstAccounts.Items.Clear();
@@ -73,6 +92,11 @@ namespace COMP3300Assignment9PerrinOwens
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnShowChecking button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An EventArgs that contains the event data.</param>
         private void btnShowChecking_Click_1(object sender, EventArgs e)
         {
             lstAccounts.Items.Clear();
@@ -82,6 +106,11 @@ namespace COMP3300Assignment9PerrinOwens
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnShowMoneyMarket button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An EventArgs that contains the event data.</param>
         private void bnShowMoneyMarket_Click(object sender, EventArgs e)
         {
             lstAccounts.Items.Clear();
